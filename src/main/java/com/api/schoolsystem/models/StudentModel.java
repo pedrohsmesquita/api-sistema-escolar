@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class StudentModel implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String name;
@@ -19,7 +19,7 @@ public class StudentModel implements Serializable {
     private LocalDate birthDate;
     @Column(nullable = false, unique = true)
     private String email;
-    @ManyToOne
+    @ManyToOne(targetEntity = ProfessorModel.class)
     @JoinColumn(name = "professorId")
     private Long professorId;
     @Column(nullable = false, length = 10)
