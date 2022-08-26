@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
+@Table(name = "professor_tb")
 public class ProfessorModel implements Serializable {
     public static final long serialVersionUID = 1L;
 
@@ -22,21 +24,21 @@ public class ProfessorModel implements Serializable {
     @Column(nullable = false)
     private String className;
     @OneToMany(mappedBy = "professorId")
-    private List<StudentModel> studentModellist;
+    private List<StudentModel> studentModelList;
 
     @PreRemove
     public void onDeleteSetNull() {
-        for (StudentModel studentModel : this.getStudentModellist()) {
+        for (StudentModel studentModel : this.getStudentModelList()) {
             studentModel.setProfessorId(null);
         }
     }
 
-    public List<StudentModel> getStudentModellist() {
-        return studentModellist;
+    public List<StudentModel> getStudentModelList() {
+        return studentModelList;
     }
 
-    public void setStudentModellist(List<StudentModel> studentModellist) {
-        this.studentModellist = studentModellist;
+    public void setStudentModelList(List<StudentModel> studentModelList) {
+        this.studentModelList = studentModelList;
     }
 
     public Long getId() {
