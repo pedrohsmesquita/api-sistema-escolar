@@ -15,7 +15,7 @@ public class StudentDto {
     @NotBlank
     private String email;
     @NotBlank
-    private Integer professorId;
+    private Long professorId;
     @NotBlank
     private String period;
 
@@ -51,11 +51,11 @@ public class StudentDto {
         this.email = email;
     }
 
-    public Integer getProfessorId() {
+    public Long getProfessorId() {
         return professorId;
     }
 
-    public void setProfessorId(Integer professorId) {
+    public void setProfessorId(Long professorId) {
         this.professorId = professorId;
     }
 

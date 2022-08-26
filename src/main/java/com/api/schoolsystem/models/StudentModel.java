@@ -19,8 +19,9 @@ public class StudentModel implements Serializable {
     private LocalDate birthDate;
     @Column(nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
-    private Integer professorId;
+    @ManyToOne
+    @JoinColumn(name = "professorId")
+    private Long professorId;
     @Column(nullable = false, length = 10)
     private String period;
 
@@ -64,11 +65,11 @@ public class StudentModel implements Serializable {
         this.email = email;
     }
 
-    public Integer getProfessorId() {
+    public Long getProfessorId() {
         return professorId;
     }
 
-    public void setProfessorId(Integer professorId) {
+    public void setProfessorId(Long professorId) {
         this.professorId = professorId;
     }
 
