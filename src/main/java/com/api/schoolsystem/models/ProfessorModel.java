@@ -25,23 +25,6 @@ public class ProfessorModel implements Serializable {
     private String email;
     @Column(nullable = false)
     private String className;
-    @OneToMany(mappedBy = "professorId")
-    private List<StudentModel> studentModelList;
-
-    @PreRemove
-    public void onDeleteSetNull() {
-        for (StudentModel studentModel : this.getStudentModelList()) {
-            studentModel.setProfessorId(null);
-        }
-    }
-
-    public List<StudentModel> getStudentModelList() {
-        return studentModelList;
-    }
-
-    public void setStudentModelList(List<StudentModel> studentModelList) {
-        this.studentModelList = studentModelList;
-    }
 
     public Long getId() {
         return id;

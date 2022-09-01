@@ -1,6 +1,8 @@
 package com.api.schoolsystem.dtos;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -10,11 +12,12 @@ public class StudentDto {
     @NotBlank
     @Size(max = 14)
     private String cpf;
-    @NotBlank
+    @NotNull
+    @PastOrPresent
     private LocalDate birthDate;
     @NotBlank
     private String email;
-    @NotBlank
+    @NotNull
     private Long professorId;
     @NotBlank
     private String period;

@@ -21,7 +21,7 @@ public class StudentModel implements Serializable {
     private String email;
     @ManyToOne(targetEntity = ProfessorModel.class)
     @JoinColumn(name = "professorId")
-    private Long professorId;
+    private ProfessorModel professor;
     @Column(nullable = false, length = 10)
     private String period;
 
@@ -65,12 +65,12 @@ public class StudentModel implements Serializable {
         this.email = email;
     }
 
-    public Long getProfessorId() {
-        return professorId;
+    public ProfessorModel getProfessor() {
+        return professor;
     }
 
-    public void setProfessorId(Long professorId) {
-        this.professorId = professorId;
+    public void setProfessor(ProfessorModel professor) {
+        this.professor = professor;
     }
 
     public String getPeriod() {
